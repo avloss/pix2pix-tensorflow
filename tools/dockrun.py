@@ -2,6 +2,13 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+
+import os
+os.chdir("docker")
+from subprocess import call
+call("sudo docker build -t pix2pix:local .".split())
+os.chdir("..")
+
 import os
 import sys
 import argparse
@@ -110,7 +117,7 @@ def main():
     if a.port is not None:
         docker_args += ["--publish", "%d:%d" % (a.port, a.port)]
 
-    args = [docker_path, "run"] + docker_args + ["affinelayer/pix2pix-tensorflow"] + cmd
+    args = [docker_path, "run"] + docker_args + ["pix2pix:local"] + cmd
 
     if not os.access("/var/run/docker.sock", os.R_OK):
         args = ["sudo"] + args

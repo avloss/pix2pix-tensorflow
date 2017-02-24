@@ -119,7 +119,7 @@ RUN pip install \
     rsa==3.4.2 \
     six==1.10.0 \
     uritemplate==3.0.0 \
-    tensorflow-gpu==1.0.0
+    tensorflow-gpu
 
 RUN curl -O https://releases.hashicorp.com/terraform/0.8.7/terraform_0.8.7_linux_amd64.zip && \
     unzip terraform_0.8.7_linux_amd64.zip -d /usr/local/bin && \
