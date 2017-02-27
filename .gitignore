@@ -5,3 +5,4 @@ models
 terraform.tfstate
 terraform.tfstate.backup
 .idea/
+.local
